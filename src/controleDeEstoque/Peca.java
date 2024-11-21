@@ -19,9 +19,7 @@ public abstract class Peca {
 
     public abstract void Venda();
 
-    public void Reposicao() {
-        if (this.qntEstoque < this.minEstoque) {
-            this.qntEstoque = this.maxEstoque;
-        }
+    public void reposicaoEstoque() {
+      this.qntEstoque = this.qntEstoque < this.minEstoque ? this.maxEstoque : this.qntEstoque;
     }
 }

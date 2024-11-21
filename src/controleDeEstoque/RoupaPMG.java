@@ -50,4 +50,10 @@ public class RoupaPMG extends Peca {
               break;
         }
     }
+
+    public void reposicaoEstoque() {
+      this.quantidadeP = this.quantidadeP < this.minEstoque ? this.maxEstoque : this.quantidadeP;
+      this.quantidadeM = this.quantidadeM < this.minEstoque ? this.maxEstoque : this.quantidadeM;
+      this.quantidadeG = this.quantidadeG < this.minEstoque ? this.maxEstoque : this.quantidadeG;      
+    }
 }
