@@ -9,6 +9,8 @@ public class RoupaTamanhoUnico extends Peca{
     public void Venda() {
         if (this.qntEstoque > 0) {
             this.qntEstoque -= 1;
+            System.out.println("Compra realizada com sucesso!");
+            System.out.println("Quantidade em estoque: " + this.qntEstoque);
         }
     }
 }

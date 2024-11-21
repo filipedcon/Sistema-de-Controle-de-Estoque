@@ -10,11 +10,12 @@ public class Acessorio extends Peca {
 
     public void Venda() {
         Scanner scan = new Scanner(System.in);
-        int pedido;
-        System.out.println("Quantas peças você quer? ");
-        pedido = scan.nextInt();
+        System.out.println("Quantas peças você quer? \nTemos " + this.qntEstoque + " peças disponíveis.");
+        int pedido = scan.nextInt();
         if (this.qntEstoque > 0) {
             this.qntEstoque -= pedido;
+            System.out.println("Compra realizada com sucesso!");
+            System.out.println("Quantidade em estoque: " + this.qntEstoque);
         }
     }
 
