@@ -1,5 +1,6 @@
 package controleDeEstoque;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Acessorio extends Peca {
@@ -10,6 +11,7 @@ public class Acessorio extends Peca {
 
     public void Venda() {
         Scanner scan = new Scanner(System.in);
+        try {
         System.out.println("Quantas peças você quer? \nTemos " + this.qntEstoque + " peças disponíveis.");
         int pedido = scan.nextInt();
         if (this.qntEstoque > 0) {
@@ -17,7 +19,11 @@ public class Acessorio extends Peca {
             System.out.println("Compra realizada com sucesso!");
             System.out.println("Quantidade em estoque: " + this.qntEstoque);
         }
-    }
+    }  catch (InputMismatchException e) {
+        System.out.println("Entrada inválida. Por favor, insira um número correspondente ao tamanho.");
+        scan.next(); 
+        }
 
 
+}
 }

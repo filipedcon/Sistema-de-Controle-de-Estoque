@@ -1,10 +1,8 @@
 package controleDeEstoque;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import controleDeEstoque.Acessorio;
-import controleDeEstoque.RoupaPMG;
-import controleDeEstoque.RoupaTamanhoUnico;
 public class App {
     public static void main(String[] args) {
       Scanner scan = new Scanner(System.in);
@@ -22,6 +20,7 @@ public class App {
       Peca[] pecas = new Peca[]{camisa, saia, cinto, pulseira, saiaPraia};
       
       do {
+    	try {
         System.out.println("Escolha uma opção: ");  
         for (int i = 0; i < pecas.length; i++) {
           if(pecas[i].qntEstoque > 0){
@@ -33,13 +32,22 @@ public class App {
         }
           
         int option = scan.nextInt();
-
+        
         if(option == 5){
           System.out.println("Saindo...");
           break;
         }else{
           pecas[option].Venda();
         }
+        
+    	} catch (InputMismatchException e) {
+            System.out.println("Entrada inválida. Insira um número.");
+            scan.next(); 
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Opção fora do intervalo. Tente novamente.");
+        }
+    	
       } while (true);
+      
     }
 }

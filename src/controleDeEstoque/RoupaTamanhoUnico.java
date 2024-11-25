@@ -13,4 +13,5 @@ public class RoupaTamanhoUnico extends Peca{
             System.out.println("Quantidade em estoque: " + this.qntEstoque);
         }
     }
+
 }

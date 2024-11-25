@@ -1,4 +1,5 @@
 package controleDeEstoque;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RoupaPMG extends Peca {
@@ -16,7 +17,8 @@ public class RoupaPMG extends Peca {
 
     public void Venda() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Qual tamanho de roupa você quer? \n 1 - P \n 2- M \n 3- G");
+        try {
+        System.out.println("Qual tamanho de roupa você quer? \n 1 - P \n 2 - M \n 3 - G");
         int escolha = scan.nextInt();
         switch (escolha) {
             case 1:
@@ -46,9 +48,12 @@ public class RoupaPMG extends Peca {
                     System.out.println("Não há tamanho G disponível. ");
                 }
                 break;
-            default:
-              break;
+      
         }
+        } catch (InputMismatchException e) {
+            System.out.println("Entrada inválida. Por favor, insira um número correspondente ao tamanho.");
+            scan.next(); 
+            }
     }
 
     public void reposicaoEstoque() {
